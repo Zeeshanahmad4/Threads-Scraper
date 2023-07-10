@@ -7,3 +7,4 @@ Introducing the elegant Thread Data Collection Software, designed for businesses
 
 
 
+<h1 align="center">Writing the code :) </h1>
