@@ -106,9 +106,3 @@ scraper.save_data_to_csv(user, 'user.csv') ```
     - Example:
         - Input: None
         - Output: `abc123def456ghi789`
-
-- **Get Identifier**: Obtain the identifier for a specific thread.
-- **Get By Identifier**: Fetch thread details based on its identifier.
-- **Get Likers**: Get the users who have liked a particular thread.
-
-**Save/Export to File CSV/Json**
