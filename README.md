@@ -15,11 +15,6 @@ A Software that scrapes the following sections from threads:
 
 ## :file_folder: File Structure
 
-- base_interface.py
-- threads_interface.py
-- README.md
-
-
 - `base_interface.py`: Provides a basic interface for interacting with Threads.
 - `threads_interface.py`: A public interface for the scraper with methods for fetching and saving data.
 
