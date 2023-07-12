@@ -35,20 +35,21 @@ A Software that scrapes the following sections from threads:
 
 Example:
 
-python
-from threads_interface import ThreadsInterface
+\`\`\`python from threads\_interface import ThreadsInterface
 
 scraper = ThreadsInterface()
 
 # Fetch user's details
-user = scraper.retrieve_user(12345)
+
+user = scraper.retrieve\_user(12345)
 
 # Save user's details to a CSV file
-scraper.save_data_to_csv(user, 'user.csv')
+
+scraper.save\_data\_to\_csv(user, 'user.csv') \`\`\` \`\`\`
 
 
-**Thread**
 
+# Output
 
 1. **Scrape User ID**
     
