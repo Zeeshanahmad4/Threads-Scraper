@@ -33,21 +33,6 @@ A Software that scrapes the following sections from threads:
 2. Create an instance of the `ThreadsInterface` class.
 3. Use the instance to call the methods for fetching and saving data.
 
-Example:
-
-<code>python
-from threads_interface import ThreadsInterface
-
-scraper = ThreadsInterface()
-
-# Fetch user's details
-user = scraper.retrieve_user(12345)
-
-# Save user's details to a CSV file
-scraper.save_data_to_csv(user, 'user.csv')
-<code>
-
-
 # Output
 
 1. **Scrape User ID**
