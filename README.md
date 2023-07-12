@@ -4,10 +4,6 @@ Welcome to the GitHub repository of Ultimate Threads Scraper , a robust Social M
 
 Introducing the elegant Thread Data Collection Software, designed for businesses, sales and marketing professionals, and researchers.
 
-
-<h1 align="center">Writing the code :) </h1>
-
-
 ## Features 🚀
 
 A Software that scrapes the following sections from threads:
