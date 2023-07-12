@@ -19,7 +19,9 @@ A Software that scrapes the following sections from threads:
 
 ## :file_folder: File Structure
 
-. ├── base\_interface.py ├── threads\_interface.py └── README.md
+├── base\_interface.py 
+├── threads\_interface.py 
+└── README.md
 
 
 
