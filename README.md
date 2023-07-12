@@ -35,7 +35,7 @@ A Software that scrapes the following sections from threads:
 
 Example:
 
-```python
+python
 from threads_interface import ThreadsInterface
 
 scraper = ThreadsInterface()
@@ -44,7 +44,7 @@ scraper = ThreadsInterface()
 user = scraper.retrieve_user(12345)
 
 # Save user's details to a CSV file
-scraper.save_data_to_csv(user, 'user.csv') ```
+scraper.save_data_to_csv(user, 'user.csv')
 
 
 **Thread**
