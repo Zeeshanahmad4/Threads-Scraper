@@ -29,6 +29,23 @@ A Software that scrapes the following sections from threads:
 
 ## :rocket: How to Use
 
+Example:
+
+<code>
+
+python
+from threads_interface import ThreadsInterface
+
+scraper = ThreadsInterface()
+
+# Fetch user's details
+user = scraper.retrieve_user(12345)
+
+# Save user's details to a CSV file
+scraper.save_data_to_csv(user, 'user.csv')
+
+<code>
+
 1. Import the `ThreadsInterface` class from `threads_interface.py`.
 2. Create an instance of the `ThreadsInterface` class.
 3. Use the instance to call the methods for fetching and saving data.
