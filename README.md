@@ -33,7 +33,7 @@ A Software that scrapes the following sections from threads:
 2. Create an instance of the `ThreadsInterface` class.
 3. Use the instance to call the methods for fetching and saving data.
 
-# Output
+## Output
 
 1. **Scrape User ID**
     
