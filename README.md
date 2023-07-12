@@ -1,10 +1,8 @@
 <h1 align="center">Ultimate Threads Scraper</h1>
 
-Welcome to the GitHub repository of Ultimate Threads Scraper , a robust Social Media Scraper designed to download content from the novel Threads platform by Meta. ✨
+Welcome to the GitHub repository of Ultimate Threads Scraper , a robust Social Media Scraper designed to download content from the Threads.net platform by Meta. ✨
 
 Introducing the elegant Thread Data Collection Software, designed for businesses, sales and marketing professionals, and researchers.
-
-
 
 
 <h1 align="center">Writing the code :) </h1>
@@ -14,12 +12,16 @@ Introducing the elegant Thread Data Collection Software, designed for businesses
 
 A Software that scrapes the following sections from threads:
 
-**User Profile/Account**
+- Fetch user's and thread's unique identifiers.
+- Retrieve user's details, threads, and replies.
+- Retrieve thread's details and its likers.
+- Save the fetched data into CSV and JSON files.
 
-- **Get Identifier**: Retrieve the unique identifier for a user.
-- **Get By Identifier**: Fetch user details based on their identifier.
-- **Get Threads**: Retrieve the list of threads associated with a user.
-- **Get Replies**: Get the replies made by a user.
+## :file_folder: File Structure
+
+. ├── base\_interface.py ├── threads\_interface.py └── README.md
+
+
 
 **Thread**
 
