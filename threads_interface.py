@@ -137,24 +137,19 @@ class ThreadsInterface(BaseThreadsInterface):
         Returns:
             The thread as a dictionary.
         """
-        headers = self.default_headers.copy()
-        headers['X-FB-Friendly-Name'] = 'BarcelonaPostPageQuery'
-
-        response = requests.post(
-            url=self.THREADS_API_URL,
-            headers=headers,
-            data={
-                'lsd': self.api_token,
-                'variables': json.dumps(
-                    {
-                        'postID': thread_id,
-                    }
-                ),
-                'doc_id': '5587632691339264',
-            },
+        url_id = self.build_url_id(thread_id)
+        response = requests.get(
+            url=f'https://www.threads.net/t/{url_id}',
+            headers=self.headers_for_html_fetching,
         )
 
-        return response.json()
+        match = re.search(r'"post_id":"%d".*?"title":"(.*?)"' % thread_id, response.text)
+        if match:
+            return {
+                'post_id': thread_id,
+                'title': match.group(1),
+            }
+        return {}
 
     def retrieve_thread_likers(self, thread_id: int) -> dict:
         """
@@ -193,7 +188,7 @@ class ThreadsInterface(BaseThreadsInterface):
             The token for the Threads as a string.
         """
         response = requests.get(
-            url='https://www.instagram.com/instagram',
+            url='https://www.threads.net',
             headers=self.headers_for_html_fetching,
         )
 
@@ -204,32 +199,18 @@ class ThreadsInterface(BaseThreadsInterface):
 
         return token
 
-    def save_data_to_csv(self, data: dict
-        """
-        Save the provided data into a CSV file.
+    def save_data_to_csv(self, data: dict, filename: str):
+        """Save the provided data into a CSV file."""
 
-        Args:
-            data (dict): The data to be saved.
-            filename (str): The filename of the CSV file.
-        """
-        # Convert the dictionary to a DataFrame
         df = pd.DataFrame(data)
 
-        # Check if file exists
         if os.path.isfile(filename):
-            # If it exists, append without writing headers
             df.to_csv(filename, mode='a', header=False, index=False)
         else:
-            # If it doesn't exist, write the DataFrame with headers
             df.to_csv(filename, index=False)
 
     def save_data_to_json(self, data: dict, filename: str):
-        """
-        Save the provided data into a JSON file.
+        """Save the provided data into a JSON file."""
 
-        Args:
-            data (dict): The data to be saved.
-            filename (str): The filename of the JSON file.
-        """
         with open(filename, 'a') as json_file:
             json.dump(data, json_file)
