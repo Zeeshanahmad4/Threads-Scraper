@@ -204,14 +204,18 @@ class ThreadsInterface(BaseThreadsInterface):
 
         return token
 
-    def save_data_to_csv(self, data: dict
-        """
-        Save the provided data into a CSV file.
+    
+    
+    
 
-        Args:
-            data (dict): The data to be saved.
-            filename (str): The filename of the CSV file.
-        """
+     def save_data_to_csv(self, data: dict, filename: str) -> None:
+            """
+    Save the provided data into a CSV file.
+
+    Args:
+        data (dict): The data to be saved.
+        filename (str): The filename of the CSV file.
+    """   
         # Convert the dictionary to a DataFrame
         df = pd.DataFrame(data)
 
