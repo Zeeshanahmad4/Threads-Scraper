@@ -47,14 +47,14 @@ class BaseThreadsInterface:
             The user's unique identifier as an integer.
         """
         response = requests.get(
-            url=f'https://www.instagram.com/{username}',
+            url=f'https://www.threads.net/@{username}',
             headers=self.headers_for_html_fetching,
         )
 
-        user_id_key_value = re.search('"user_id":"(\\d+)",', response.text).group()
-        user_id = re.search('\\d+', user_id_key_value).group()
-
-        return int(user_id)
+        match = re.search(r'"user_id":"(\d+)"', response.text)
+        if not match:
+            raise ValueError(f"Could not find user_id for username: {username}")
+                return int(match.group(1))
 
     def retrieve_thread_id(self, url_id: str) -> int:
         """
