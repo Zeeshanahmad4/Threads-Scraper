@@ -47,7 +47,7 @@ class BaseThreadsInterface:
             The user's unique identifier as an integer.
         """
         response = requests.get(
-            url=f'https://www.instagram.com/{username}',
+            url=f'https://www.threads.net/@{username}',
             headers=self.headers_for_html_fetching,
         )
 
@@ -74,3 +74,14 @@ class BaseThreadsInterface:
             thread_id = (thread_id * 64) + alphabet.index(character)
 
         return thread_id
+
+    def build_url_id(self, thread_id: int) -> str:
+        """Generate the base64-like URL id for a thread."""
+        alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'
+        if thread_id == 0:
+            return alphabet[0]
+        chars = []
+        while thread_id > 0:
+            thread_id, idx = divmod(thread_id, 64)
+            chars.append(alphabet[idx])
+        return ''.join(reversed(chars))
