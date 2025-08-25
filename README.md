@@ -75,6 +75,6 @@ If you need **custom scraping, automation systems, or SaaS dashboards** for Thre
 ##
 
 <p align="center">
-  <img src="footer.png">
+  <img src="footer.png" height="150" width="40%">
 </p>
 
