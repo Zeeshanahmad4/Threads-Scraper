@@ -1,14 +1,25 @@
-# Threads Scraper – Public Data Extractor for Meta Threads
-![Built by Appilot](https://img.shields.io/badge/Built%20by-Appilot-orange)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](#)
-[![Automation](https://img.shields.io/badge/Automation-Social%20Media-green)](#)
-[![Telegram](https://img.shields.io/badge/Telegram-@devpilot1-blue?logo=telegram)](https://t.me/devpilot1)
-[![Discord](https://img.shields.io/badge/Discord-Appilot-5865F2?logo=discord&logoColor=white)](https://discord.gg/vBu9huKBvy)
+
+<p align="center">
+  <h1>Threads Scraper – Public Data Extractor for Meta Threads</h1>
+</p>
 
 
-A lightweight and flexible **Threads scraper** that helps you extract **public posts and profile data** from [Threads.net](https://www.threads.net/).  
+<p align="center">
+  <img src="https://img.shields.io/badge/Built%20by-Appilot-orange">
+  <img src="https://img.shields.io/badge/Python-3.10%2B-blue">
+  <img src="https://img.shields.io/badge/Automation-Social%20Media-green">
+  <a href="https://t.me/devpilot1"><img src="https://img.shields.io/badge/Telegram-@devpilot1-blue?logo=telegram"></a>
+  <a href="https://discord.gg/vBu9huKBvy"><img src="https://img.shields.io/badge/Discord-Appilot-5865F2?logo=discord&logoColor=white"></a>
+</p>
 
-This repository is built to demonstrate how **automation + scraping** can simplify **data collection for research, marketing, and growth hacking**.
+
+
+A lightweight and flexible **Threads Scraper** designed to solve the **frustration of manual data collection** from [Threads.net](https://www.threads.net/).
+
+Marketers, researchers, and businesses spend countless hours trying to copy-paste posts or depend on unreliable third-party tools. **This scraper changes that** — delivering fast, structured, and reliable Threads data so you can focus on **insights, growth, and results**, not the grunt work.
+
+For full access and custom solutions, reach out via [Telegram](https://t.me/devpilot1) or [Discord](https://discord.gg/vBu9huKBvy).
+
 
 ##
 ![Hero](hero.png)
@@ -61,4 +72,9 @@ If you need **custom scraping, automation systems, or SaaS dashboards** for Thre
 - **Telegram** → [@devpilot1](https://t.me/devpilot1)  
 - **Discord Server** → [Appilot](https://discord.gg/vBu9huKBvy)  
 
+##
+
+<p align="center">
+  <img src="footer.png">
+</p>
 
