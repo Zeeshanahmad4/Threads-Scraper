@@ -5,11 +5,11 @@
 
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Built%20by-Appilot-orange">
+ 
   <img src="https://img.shields.io/badge/Python-3.10%2B-blue">
   <img src="https://img.shields.io/badge/Automation-Social%20Media-green">
   <a href="https://t.me/devpilot1"><img src="https://img.shields.io/badge/Telegram-@devpilot1-blue?logo=telegram"></a>
-  <a href="https://discord.gg/vBu9huKBvy"><img src="https://img.shields.io/badge/Discord-Appilot-5865F2?logo=discord&logoColor=white"></a>
+
 </p>
 
 
@@ -68,9 +68,29 @@ The **Threads Scraper** provides a simple way to **automate data collection** wi
 
 ##  Contact
 If you need **custom scraping, automation systems, or SaaS dashboards** for Threads or other platforms, get in touch:  
-
-- **Telegram** → [@devpilot1](https://t.me/devpilot1)  
-- **Discord Server** → [Appilot](https://discord.gg/vBu9huKBvy)  
+<div align="center">
+  <a href="https://mail.google.com/mail/u/?authuser=ahmadzee26@gmail.com">
+    <img alt="Gmail" width="30px" src="https://edent.github.io/SuperTinyIcons/images/svg/gmail.svg" />
+    <code>ahmadzee26@gmail.com</code>
+  </a>
+  <span> ┃ </span>
+  
+  <a href="https://t.me/zeeshanahmad4">
+    <img alt="Telegram" width="30px" src="https://edent.github.io/SuperTinyIcons/images/svg/telegram.svg" />
+    <code>@zeeshanahmad4</code>
+  </a>
+  <span> ┃ </span>
+  
+  <a href="https://discord.com">
+    <img alt="Discord" width="30px" src="https://github.com/Zeeshanahmad4/RealEstateMate-WhatsApp-Group-Management-Bot/blob/main/discord-icon-svgrepo-com.svg" />
+    <code>zee#2655</code>
+  </a>
+  <span> ┃ </span>
+  
+  <a href="https://www.upwork.com/freelancers/zeeshanahmad291">
+    <img alt="Upwork" width="80px" src="https://github.com/Zeeshanahmad4/Zeeshanahmad4/blob/main/upwork.svg" />
+    <code>Zeeshan Ahmad</code>
+  </a>
 
 ##
 
