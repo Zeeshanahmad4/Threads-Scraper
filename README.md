@@ -58,7 +58,7 @@ It allows developers and analysts to gather structured data such as posts, engag
 </p>
 <p align="center">
   <a href="https://bitbash.dev" target="_blank">
-    <img src="threads-scraper-hero.png" alt="threads-scraper" width="95%">
+    <img src="media/threads-scraper-hero.png" alt="threads-scraper" width="95%">
   </a>
 </p>
 
