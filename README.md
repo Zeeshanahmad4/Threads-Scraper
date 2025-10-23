@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://bitbash.dev" target="_blank">
-    <img src="threads-scraper.png" alt="Threads scraper" width="100%">
+    <img src="Threads-Scraper.png" alt="Threads scraper" width="100%">
   </a>
 </p>
 <p align="center">
