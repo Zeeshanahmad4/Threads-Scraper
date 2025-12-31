@@ -118,15 +118,19 @@ This project automates that workflow with a structured **scrape Threads** proces
 ---
 
 ## FAQs
-**How to scrape Threads?**
+**How to scrape Threads?**<br>
 Threads can be scraped by loading publicly accessible pages in a controlled browser environment, allowing content to render fully, and extracting visible data from the screen. This project follows that approach using browser automation, structured parsing logic, and rate limiting to ensure consistent results.
-**Does this support scrape threads without login?**
+
+**Does this support scrape threads without login?**<br>
 Yes. The scraper is designed to operate entirely on public Threads pages and does not require authenticated sessions.
-**Is this similar to an apify Threads scrape workflow?**
+
+**Is this similar to an apify Threads scrape workflow?**<br>
 The architecture follows similar principles, such as headless browsing, structured output, and repeatable execution, but is designed for local execution and full control.
-**Can it generate XML-style outputs?**
+
+**Can it generate XML-style outputs?**<br>
 Yes. In addition to JSON and CSV, the output structure can align with universal XML scraper Threads schemas.
-**How does it handle layout changes?**
+
+**How does it handle layout changes?**<br>
 The scraper validates page elements dynamically and includes fallback parsing logic to adapt to UI changes.
 
 ---
@@ -134,12 +138,16 @@ The scraper validates page elements dynamically and includes fallback parsing lo
 ## Performance & Reliability Benchmarks
 **Execution Speed:**
 Scrapes approximately 300–600 Threads posts per hour depending on scrolling depth and delay configuration.
+
 **Success Rate:**
 Maintains a 91–94% successful extraction rate across repeated runs with retries enabled.
+
 **Scalability:**
-Supports parallel scraping of 50–200 Threads pages using multiple browser workers.
+Supports parallel scraping of 10 - 20 Threads pages using multiple browser(stealth) workers.
+
 **Resource Usage:**
 Each browser instance typically consumes 300–450 MB RAM with moderate CPU usage.
+
 **Error Handling:**
 Includes automatic retries, structured logging, validation checks, and graceful shutdown for stable long-running scraping sessions.
 
