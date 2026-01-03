@@ -6,7 +6,7 @@ The project focuses on flexible **threads scraping** workflows that operate with
 
 
 <p align="center">
-  <a href="https://threadscope1.vercel.app/" target="_blank">
+  <a href="https://www.scrapethreads.buzz/" target="_blank">
     <img src="threadsraper.png" alt="Threads scraper" width="85%">
   </a>
 </p>
