@@ -6,8 +6,8 @@ The project focuses on flexible **threads scraping** workflows that operate with
 
 
 <p align="center">
-  <a href="https://bitbash.dev" target="_blank">
-    <img src="media/threads-scraper.png" alt="Threads scraper" width="100%">
+  <a href="https://threadscope1.vercel.app/" target="_blank">
+    <img src="threadsraper.png" alt="Threads scraper" width="85%">
   </a>
 </p>
 <p align="center">
