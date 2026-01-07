@@ -7,7 +7,7 @@ The project focuses on flexible **threads scraping** workflows that operate with
 
 <p align="center">
   <a href="https://www.scrapethreads.buzz/" target="_blank">
-    <img src="threadsraper.png" alt="Threads scraper" width="85%">
+    <img src="scrapethreads.png" alt="Threads scraper" width="85%">
   </a>
 </p>
 <p align="center">
@@ -23,12 +23,6 @@ The project focuses on flexible **threads scraping** workflows that operate with
   <a href="https://bitbash.dev" target="_blank">
     <img src="https://img.shields.io/badge/Visit-Website-007BFF?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website">
   </a>
-</p>
-
-
-<p align="center">
-  Created by Bitbash, built to showcase our approach to Scraping and Automation!<br>
-  <strong>If you are looking for custom threads-scraper, you've just found your team — Let's Chat.👆👆</strong>
 </p>
 
 
