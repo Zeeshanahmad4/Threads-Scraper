@@ -14,7 +14,7 @@ from scraper.utils.logger import get_logger
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 OUTPUT_DIR = ROOT / "output"
-CONFIG_DIR = ROOT / "src" / "config"
+CONFIG_DIR = ROOT / "config"
 logger = get_logger(__name__)
 def load_settings(config_path: Path) -> Dict[str, Any]:
     with open(config_path, "r", encoding="utf-8") as f:
@@ -46,6 +46,29 @@ def parse_args(default_usernames: List[str]) -> argparse.Namespace:
         default=50,
         help="Max number of threads per user to collect (if supported by endpoint).",
     )
+
+    parser.add_argument(
+        "--login",
+        action="store_true",
+        help="Open a real browser to login and save a persistent session (requires profile dir).",
+    )
+    parser.add_argument(
+        "--profile-dir",
+        type=str,
+        default=None,
+        help="Path to persistent Playwright profile directory (defaults to data/playwright-profile).",
+    )
+    parser.add_argument(
+        "--headed",
+        action="store_true",
+        help="Run Playwright with a visible browser window (useful for debugging).",
+    )
+
+    parser.add_argument(
+        "--keep-empty",
+        action="store_true",
+        help="Keep items with empty text/caption (media-only posts or non-post objects).",
+    )
     return parser.parse_args()
 def main():
     load_dotenv()  # load .env if present
@@ -59,6 +82,25 @@ def main():
     # Merge CLI overrides into settings
     settings["use_offline"] = args.offline or settings.get("use_offline", False)
     settings["limit"] = args.limit
+
+    # Playwright session/profile options
+    if args.profile_dir:
+        settings["playwright_user_data_dir"] = args.profile_dir
+    if args.headed:
+        settings["playwright_headless"] = False
+
+    # Dedicated login flow: open browser, let user login, then exit.
+    if args.login:
+        settings.setdefault("playwright_user_data_dir", str(DATA_DIR / "playwright-profile"))
+        settings["playwright_headless"] = False
+        scraper = ThreadsScraper(
+            settings=settings,
+            config_dir=CONFIG_DIR,
+            data_dir=DATA_DIR,
+        )
+        scraper.open_login()
+        logger.info("Login flow complete. Re-run without --login to scrape using the saved session.")
+        return
     scraper = ThreadsScraper(
         settings=settings,
         config_dir=CONFIG_DIR,
@@ -73,6 +115,8 @@ def main():
             raw_items = scraper.fetch_user_threads(username=username, limit=settings["limit"])
             parsed_items = [parser.parse_item(item, default_username=username) for item in raw_items]
             parsed_items = [p for p in parsed_items if p]  # drop None
+            if not args.keep_empty:
+                parsed_items = [p for p in parsed_items if (p.get("text") or "").strip()]
             all_results.extend(parsed_items)
         except Exception as e:
             logger.exception(f"Failed to collect for @{username}: {e}")

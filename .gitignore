@@ -1,0 +1,65 @@
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+.eggs/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+.env-venv/
+
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.tox/
+.nox/
+coverage.xml
+.coverage
+htmlcov/
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ==============================
+# Project-specific (Threads-Scraper)
+# ==============================
+# Local secrets
+.env
+
+# Outputs
+output/
+
+# Processed/raw data (keep config, ignore generated artifacts)
+data/raw/
+data/processed/
+
+# Playwright persistent browser profile (contains cookies/session)
+data/playwright-profile/
+
+# Optional media dumps
+media/ss/
+
+# ==============================
+# Git
+# ==============================
+*.orig
+*.rej

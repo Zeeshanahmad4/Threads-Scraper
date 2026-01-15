@@ -65,6 +65,13 @@ This project automates that workflow with a structured **scrape Threads** proces
 | **Other Functionalities** | Includes retries, scrolling logic, validation checks, and execution logs. |
 | **Safety Controls** | Uses rate limiting, cooldown delays, and guarded execution flows for stability. |
 ---
+
+## Online Mode Notes (Important)
+Threads may limit what a non-logged-in session can see (or how many posts load). If you request `--limit 50` and only get ~10–20 items, that is usually a visibility/session limitation rather than your limit value.
+
+Recommended fixes:
+- Use a logged-in cookie: create `.env` from `.env.example` and set `THREADS_COOKIE`.
+- Or use a persistent Playwright profile: set `playwright_user_data_dir` (and temporarily `playwright_headless: false`) in `config/settings.yaml`, run once to login, then set headless back to true.
 ## Tech Stack
 | Component | Description |
 |------------|-------------|

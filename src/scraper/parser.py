@@ -37,17 +37,31 @@ class ThreadsParser:
             # Commonly, we might see nested shapes like: {"post":{"id":...,"caption":{"text":...}}}
             post = raw.get("post") or raw.get("thread") or raw
             pid = post.get("id") or post.get("pk") or post.get("code") or ""
+
+            # Drop obviously non-post objects that slip through response capture.
+            if isinstance(pid, str) and "mediainfo" in pid.lower():
+                return None
+
             caption = (
                 (post.get("caption") or {}).get("text")
                 if isinstance(post.get("caption"), dict)
                 else post.get("caption") or ""
             )
+
+            # Some payloads include a top-level 'text' alongside/without caption.
+            if not caption and isinstance(post.get("text"), str):
+                caption = post.get("text")
             user_obj = post.get("user") or {}
             username = user_obj.get("username") or default_username or ""
             like_count = post.get("like_count") or post.get("likes") or 0
             reply_count = post.get("comment_count") or post.get("replies") or 0
             repost_count = post.get("repost_count") or post.get("reposts") or 0
             ts = post.get("taken_at") or post.get("timestamp") or post.get("created_at")
+
+            # If we don't have any timestamp and also don't have text, it's almost certainly junk.
+            if (caption or "").strip() == "" and not ts:
+                return None
+
             created_iso = self._coerce_datetime(ts)
             url = post.get("url") or ""
             return {

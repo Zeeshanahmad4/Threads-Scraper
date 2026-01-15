@@ -35,4 +35,4 @@ class ProxyManager:
             return None
         prox = self._proxies[self._idx % len(self._proxies)]
         self._idx += 1
-        return proxy
+        return prox
