@@ -193,6 +193,7 @@ class ThreadsScraper:
         max_scrolls = int(self.settings.get("max_scrolls", 20) or 20)
         scroll_pause_ms = int(self.settings.get("scroll_pause_ms", 1200) or 1200)
         settle_ms = int(self.settings.get("page_settle_ms", 2500) or 2500)
+        stagnant_limit = int(self.settings.get("stagnant_scrolls", 3) or 3)
 
         # 1) Fast path: plain HTTP fetch and parse embedded JSON (works when not blocked).
         try:
@@ -223,6 +224,7 @@ class ThreadsScraper:
             max_scrolls=max_scrolls,
             settle_ms=settle_ms,
             scroll_pause_ms=scroll_pause_ms,
+            stagnant_limit=stagnant_limit,
         )
         if items:
             return items[:limit]
@@ -447,15 +449,20 @@ class ThreadsScraper:
                 try:
                     if len(json_payloads) >= 30:
                         return
-                    ct = (resp.headers or {}).get("content-type", "")
-                    if "application/json" not in ct:
-                        return
                     rurl = resp.url or ""
                     if "graphql" not in rurl and "/api/" not in rurl:
                         return
                     if resp.status != 200:
                         return
-                    json_payloads.append(resp.json())
+                    payload = None
+                    try:
+                        payload = resp.json()
+                    except Exception:
+                        try:
+                            payload = json.loads(resp.text())
+                        except Exception:
+                            return
+                    json_payloads.append(payload)
                 except Exception:
                     return
 
@@ -484,6 +491,7 @@ class ThreadsScraper:
         max_scrolls: int,
         settle_ms: int,
         scroll_pause_ms: int,
+        stagnant_limit: int,
     ) -> List[Dict[str, Any]]:
         """Collect post-like objects by rendering and scrolling.
 
@@ -554,15 +562,19 @@ class ThreadsScraper:
 
             def on_response(resp):
                 try:
-                    ct = (resp.headers or {}).get("content-type", "")
-                    if "application/json" not in ct:
-                        return
                     rurl = resp.url or ""
                     if "graphql" not in rurl and "/api/" not in rurl:
                         return
                     if resp.status != 200:
                         return
-                    payload = resp.json()
+                    payload = None
+                    try:
+                        payload = resp.json()
+                    except Exception:
+                        try:
+                            payload = json.loads(resp.text())
+                        except Exception:
+                            return
                     # keep a few payloads around for debugging/secondary parsing
                     if len(json_payloads) < 120:
                         json_payloads.append(payload)
@@ -577,16 +589,27 @@ class ThreadsScraper:
 
             last_count = len(posts_by_id)
             stagnant_loops = 0
+            try:
+                last_height = page.evaluate("document.body.scrollHeight")
+            except Exception:
+                last_height = None
+            stagnant_height = 0
 
             for _ in range(max_scrolls):
                 if len(posts_by_id) >= target_count:
                     break
 
                 try:
+                    page.evaluate("window.scrollBy(0, document.body.scrollHeight)")
+                    page.wait_for_timeout(50)
                     page.mouse.wheel(0, 1600)
                 except Exception:
                     pass
                 page.wait_for_timeout(scroll_pause_ms)
+                try:
+                    page.wait_for_load_state("networkidle", timeout=1500)
+                except Exception:
+                    pass
 
                 # If the page isn't yielding anything new, stop after a few tries.
                 current = len(posts_by_id)
@@ -595,7 +618,17 @@ class ThreadsScraper:
                 else:
                     stagnant_loops = 0
                     last_count = current
-                if stagnant_loops >= 3:
+                try:
+                    current_height = page.evaluate("document.body.scrollHeight")
+                except Exception:
+                    current_height = None
+                if current_height is not None and last_height is not None:
+                    if current_height <= last_height:
+                        stagnant_height += 1
+                    else:
+                        stagnant_height = 0
+                        last_height = current_height
+                if stagnant_loops >= stagnant_limit and stagnant_height >= stagnant_limit:
                     break
 
             html = page.content()

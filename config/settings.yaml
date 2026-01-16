@@ -3,17 +3,18 @@ base_url: "https://www.threads.net"
 timeout: 15
 use_offline: false        # online mode (may require cookie/proxies if blocked)
 use_proxies: false        # set true to use proxies from proxies.json
-limit: 50
+limit: 99
 
 # Online mode tuning (optional)
-max_scrolls: 25           # increase if you want more posts (slower)
+max_scrolls: 999         # increase if you want more posts (slower)
 scroll_pause_ms: 1200     # wait after each scroll to let XHR complete
 page_settle_ms: 2500      # initial wait after first load
+stagnant_scrolls: 10        # stop after this many scrolls with no new posts
 
 # Logged-in / session options (recommended when you hit public visibility limits)
 # Option A: set THREADS_COOKIE in .env (copy request Cookie header from a logged-in browser)
 # Option B: set a persistent Playwright profile directory and login once
-playwright_headless: true
+playwright_headless: false
 playwright_user_data_dir: "data/playwright-profile"  # e.g. "data/playwright-profile" (set headless=false to login interactively)
 # Default usernames used if none provided via CLI
 usernames:
