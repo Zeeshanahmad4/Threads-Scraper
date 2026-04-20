@@ -20,7 +20,7 @@ The project focuses on flexible **threads scraping** workflows that operate with
   <a href="mailto:bitbash9@gmail.com" target="_blank">
     <img src="https://img.shields.io/badge/Email-bitbash9@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail">
   </a>&nbsp;
-  <a href="https://bitbash.dev" target="_blank">
+  <a href="https://www.scrapethreads.buzz/" target="_blank">
     <img src="https://img.shields.io/badge/Visit-Website-007BFF?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website">
   </a>
 </p>
