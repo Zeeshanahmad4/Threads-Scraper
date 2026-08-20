@@ -7,7 +7,7 @@ The project focuses on flexible **threads scraping** workflows that operate with
 
 <p align="center">
   <a href="https://scrapecrew.com/" target="_blank">
-    <img src="https://github.com/Zeeshanahmad4/Threads-Scraper/blob/main/data/raw/ScrapeCrew%20Banner-selection.png" alt="Threads scraper" width="85%">
+    <img src="https://github.com/Zeeshanahmad4/Threads-Scraper/blob/main/data/raw/Scrape%20Crew%20Banner-selection.png" alt="Threads scraper" width="85%">
   </a>
 </p>
 <p align="center">
