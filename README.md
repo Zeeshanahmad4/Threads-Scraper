@@ -26,6 +26,13 @@ The project focuses on flexible **threads scraping** workflows that operate with
 </p>
 
 
+<p align="center">
+  <strong>
+    <a href="https://www.loom.com/share/226d1feb2b5544a1882e92c045d5fddc">Watch the Demo</a>
+  </strong>
+</p>
+
+
 ## Introduction
 Collecting data from Threads often involves manually opening profiles, scrolling timelines, and copying visible content from the screen. This approach does not scale and becomes unreliable when working with large volumes of posts.
 
